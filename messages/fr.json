@@ -1,0 +1,10 @@
+{
+  "loginTitle": "Connectez-vous à votre compte",
+  "loginDescription": "Entrez votre e-mail ci-dessous pour vous connecter à votre compte",
+  "signUp": "S'inscrire",
+  "forgotPassword": "Mot de passe oublié ?",
+  "email": "E-mail",
+  "password": "Mot de passe",
+  "login": "Connexion",
+  "loginWithGoogle": "Connexion avec Google"
+}
