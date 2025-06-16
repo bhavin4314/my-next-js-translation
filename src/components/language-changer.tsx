@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+'use client';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,12 +7,21 @@ import {
   DropdownMenuItem,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
+import { Locale } from '@/i18n/config';
+import { setUserLocale } from '@/services/locale';
+
+// Define available languages in a scalable format
+const languages: { label: string; value: Locale; shortcut: string }[] = [
+  { label: 'English', value: 'en', shortcut: '⇧⌘P' },
+  { label: 'French', value: 'fr', shortcut: '⌘B' },
+];
 
 export function LanguageChanger() {
-  function switchToFrench() {}
-
-  function switchToEnglish() {}
+  const handleChange = (value: string) => {
+    const locale = value as Locale;
+    setUserLocale(locale);
+  };
 
   return (
     <DropdownMenu>
@@ -20,14 +30,12 @@ export function LanguageChanger() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="start">
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={switchToEnglish}>
-            English
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={switchToFrench}>
-            French
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          {languages.map(({ label, value, shortcut }) => (
+            <DropdownMenuItem key={value} onClick={() => handleChange(value)}>
+              {label}
+              <DropdownMenuShortcut>{shortcut}</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

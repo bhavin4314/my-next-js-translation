@@ -1,4 +1,6 @@
-import { Button } from "@/components/ui/button";
+'use client';
+
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardAction,
@@ -7,28 +9,28 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useTranslations } from "next-intl";
-import React from "react";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { useTranslations } from 'next-intl';
+import React from 'react';
 
-const LoginForm = async () => {
+const LoginForm = () => {
   const t = useTranslations();
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>{t("loginTitle")}</CardTitle>
-        <CardDescription>{t("loginDescription")}</CardDescription>
+        <CardTitle>{t('loginTitle')}</CardTitle>
+        <CardDescription>{t('loginDescription')}</CardDescription>
         <CardAction>
-          <Button variant="link">{t("signUp")}</Button>
+          <Button variant="link">{t('signUp')}</Button>
         </CardAction>
       </CardHeader>
       <CardContent>
         <form>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email">{t("email")}</Label>
+              <Label htmlFor="email">{t('email')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -38,12 +40,12 @@ const LoginForm = async () => {
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password">{t("password")}</Label>
+                <Label htmlFor="password">{t('password')}</Label>
                 <a
                   href="#"
                   className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                 >
-                  {t("forgotPassword")}
+                  {t('forgotPassword')}
                 </a>
               </div>
               <Input id="password" type="password" required />
@@ -53,10 +55,10 @@ const LoginForm = async () => {
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button type="submit" className="w-full">
-          {t("login")}
+          {t('login')}
         </Button>
         <Button variant="outline" className="w-full">
-          {t("loginWithGoogle")}
+          {t('loginWithGoogle')}
         </Button>
       </CardFooter>
     </Card>
